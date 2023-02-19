@@ -19,7 +19,6 @@ export async function fetchTokenPrices() {
   tokenPrices.set("ksm", await fetchKSMPrice());
 
   for (let token of Tokens) {
-
     const sources = token.priceSource;
     let price = 1;
     for (let i = 0; i < sources.length; i++) {
@@ -45,9 +44,10 @@ export async function fetchTokenPrices() {
         const targetOne = decimalsToAmount(1, targetDecimals);
 
         let priceInTargetNormalised;
-        if (priceInTarget.gt(new BN(targetOne.toString()))) {
+
+        if (priceInTarget.gte(new BN(Number.MAX_SAFE_INTEGER.toString()))) {
           priceInTargetNormalised = priceInTarget
-            .div(new BN((10 ** targetDecimals).toString()))
+            .div(new BN(targetOne.toString()))
             .toNumber();
         } else {
           priceInTargetNormalised = priceInTarget.toNumber() / targetOne;
