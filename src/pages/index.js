@@ -37,7 +37,7 @@ export default function Home() {
         <Header />
 
         {isLoading ? (
-          <div className="text-green-200 font-bold text-center text-xl">
+          <div className="text-green-200 font-bold text-center md:text-xl">
             loading token price data...
           </div>
         ) : (
