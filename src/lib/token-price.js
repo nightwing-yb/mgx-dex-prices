@@ -19,7 +19,7 @@ export async function fetchTokenPrices() {
   tokenPrices.set("ksm", await fetchKSMPrice());
 
   for (let token of Tokens) {
-    console.log("Calculating for", token.symbol);
+
     const sources = token.priceSource;
     let price = 1;
     for (let i = 0; i < sources.length; i++) {

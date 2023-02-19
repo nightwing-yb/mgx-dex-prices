@@ -6,7 +6,6 @@ const handler = async (req, res) => {
 
   const tokens = Array.from(prices.keys()).map((symbol) => {
     const T = Tokens.find((t) => t.symbol.toLowerCase() === symbol);
-    console.log(T);
     return {
       symbol: T.symbol,
       name: T.name,
