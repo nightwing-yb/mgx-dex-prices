@@ -58,15 +58,15 @@ const Header = () => (
     <div className="text-gray-100 text-lg mt-0.5 text-center leading-6">
       token prices on mangata
     </div>
-    <a
-      className="flex justify-center items-center"
-      href="https://twitter.com/nightwing_yb"
-      target={"_blank"}
-      rel="noreferrer"
-    >
-      <div className="text-gray-100 text-xs bg-slate-800 px-4 py-1 rounded-full mt-4 underline">
+    <div className="flex justify-center items-center">
+      <a
+        href="https://twitter.com/nightwing_yb"
+        target={"_blank"}
+        rel="noreferrer"
+        className="text-gray-100 text-xs bg-slate-800 px-4 py-1 rounded-full mt-4 underline"
+      >
         by nightwing
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 );
