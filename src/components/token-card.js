@@ -35,6 +35,7 @@ const TokenImage = ({ symbol }) => {
         width={28}
         height={28}
         className={"rounded-full max-h-max"}
+        alt={symbol}
       />
     </div>
   );

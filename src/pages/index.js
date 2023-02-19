@@ -52,7 +52,7 @@ const Header = () => (
   <div className="mb-12">
     <div className="flex justify-center items-center">
       <div className="flex items-center space-x-1">
-        <Image src={MangataXLogo} />
+        <Image src={MangataXLogo} alt="MangataX Logo" />
       </div>
     </div>
     <div className="text-gray-100 text-lg mt-0.5 text-center leading-6">
@@ -62,6 +62,7 @@ const Header = () => (
       className="flex justify-center items-center"
       href="https://twitter.com/nightwing_yb"
       target={"_blank"}
+      rel="noreferrer"
     >
       <div className="text-gray-100 text-xs bg-slate-800 px-4 py-1 rounded-full mt-4 underline">
         by nightwing

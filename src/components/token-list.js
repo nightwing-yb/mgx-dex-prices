@@ -11,7 +11,7 @@ function TokenList({ tokens }) {
       transition={{ duration: "0.2", type: "spring" }}
     >
       {tokens.map((t) => (
-        <TokenCard token={t} />
+        <TokenCard token={t} key={t.name} />
       ))}
     </motion.div>
   );
