@@ -38,7 +38,7 @@ export default function Home() {
 
         {isLoading ? (
           <div className="text-green-200 font-bold text-center text-xl">
-            Loading token price data...
+            loading token price data...
           </div>
         ) : (
           <TokenList tokens={tokens} />
