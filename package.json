@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/poppins": "^4.5.10",
+    "@fontsource/syne": "^4.5.13",
     "@headlessui/react": "^1.7.7",
     "@mangata-finance/sdk": "^1.12.0",
     "@next/font": "13.1.4",

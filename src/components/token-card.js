@@ -1,43 +1,60 @@
 import React from "react";
-import Image from "next/image";
-
+import { Flex, Text, Image } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 function TokenCard({ token }) {
   return (
-    <div className="flex w-full justify-between items-center my-4 rounded-md px-8 py-3 border-2 bg-zinc-900  border-cyan-100 border-opacity-40">
-      <motion.div
-        className="flex space-x-3 items-center w-2/3"
-        initial={{ y: "10%", opacity: "0" }}
-        animate={{ y: "0", opacity: "100%" }}
-        transition={{ delay: "0.15" }}
+    <>
+      <Flex
+        w={["324px", "324px", "725px"]}
+        h={"71px"}
+        bg={"rgba(100, 90, 133, 0.09)"}
+        border={"1px solid #645A85"}
+        fontFamily={"Poppins, sans-serif"}
+        fontSize={["18px", "18px", "22px"]}
+        rounded={"7px"}
+        justify={"center"}
+        align={"center"}
+        color={"white"}
+        marginBottom={"32px"}
       >
-        <TokenImage symbol={token.symbol} />
-        <div className="text-gray-200">{token.symbol}</div>
-      </motion.div>
-      <motion.div
-        className="text-white font-bold"
-        initial={{ y: "10%", opacity: "0" }}
-        animate={{ y: "0", opacity: "100%" }}
-        transition={{ delay: "0.15" }}
-      >
-        ${formatNumber(token.price)}
-      </motion.div>
-    </div>
+        <Flex w={["289px", "289px", "656px"]} justifyContent={"space-between"}>
+          <Flex>
+            <motion.div
+              className="flex space-x-3 items-center w-2/3"
+              initial={{ y: "10%", opacity: "0" }}
+              animate={{ y: "0", opacity: "100%" }}
+              transition={{ delay: "0.15" }}
+            >
+              <TokenImage symbol={token.symbol} />
+              <div className="text-gray-200">{token.symbol}</div>
+            </motion.div>
+          </Flex>
+          <Flex fontWeight={"semibold"}>
+            <motion.div
+              initial={{ y: "10%", opacity: "0" }}
+              animate={{ y: "0", opacity: "100%" }}
+              transition={{ delay: "0.15" }}
+            >
+              ${formatNumber(token.price)}
+            </motion.div>
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
   );
 }
 
 const TokenImage = ({ symbol }) => {
   return (
-    <div className="rounded-full overflow-hidden ring-green-200 ring-[1.5px]">
-      <Image
-        src={`https://raw.githubusercontent.com/yield-bay/assets/main/list/${symbol}.png`}
-        width={28}
-        height={28}
-        className={"rounded-full max-h-max"}
-        alt={symbol}
-      />
-    </div>
+    <Image
+      src={`https://raw.githubusercontent.com/yield-bay/assets/main/list/${symbol}.png`}
+      width={"28px"}
+      height={"28px"}
+      rounded={"full"}
+      alt={symbol}
+      border={"1.5px solid #645A85"}
+    />
   );
 };
 
