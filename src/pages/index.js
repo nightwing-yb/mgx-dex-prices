@@ -1,17 +1,10 @@
-import Head from "next/head";
+import { Flex, Text, Image, Button, Spinner } from "@chakra-ui/react";
+import TokenList from "@/components/token-list";
 import useSWR from "swr";
 import axios from "axios";
-import Image from "next/image";
-
-import MangataXLogo from "../../public/mgx-logo.svg";
-
-import TokenList from "@/components/token-list";
-
 import { useState } from "react";
 
-import { motion } from "framer-motion";
-
-export default function Home() {
+function Index() {
   const {
     data: tokens,
     error,
@@ -24,49 +17,95 @@ export default function Home() {
   // const isLoading = true;
 
   const [categories] = useState(["Tokens", "Pairs"]);
-
   return (
-    <>
-      <Head>
-        <title>Tokens | Mangata X</title>
-        <meta name="description" content="Token prices on Mangata X" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="px-12 py-20 bg-black min-h-screen antialiased font-mono">
-        <Header />
-
+    <Flex
+      minHeight={"100vh"}
+      bg={"linear-gradient(180deg, #110D1D 0%, #050505 100%)"}
+      flexDir={"column"}
+    >
+      <Flex
+        w={"100%"}
+        h={"261px"}
+        fontFamily={"Syne, sans-serif"}
+        flexDir={"column"}
+        bgImage={"grids.svg"}
+        bgSize={"contain"}
+        align={"center"}
+        color={"white"}
+      >
+        <Flex
+          marginTop={"58px"}
+          justifyContent={"space-between"}
+          w={["347px", "347px", "1230px"]}
+          align={"center"}
+        >
+          <Flex gap={"10px"}>
+            <Text fontSize={["20px", "20px", "32px"]} fontWeight={"medium"}>
+              Mangata
+            </Text>
+            <Image src={"logo.svg"} alt={"logo"} h={["27px", "27px", "44px"]} />
+          </Flex>
+          <Button
+            w={"124px"}
+            h={"35px"}
+            border={"1px solid #645A85"}
+            borderRadius={"7px"}
+            bg={"rgba(100, 90, 133, 0.14)"}
+            fontSize={"16px"}
+            fontWeight={"normal"}
+            _hover={{ background: "rgba(100, 90, 133, 0.3)" }}
+          >
+            by nightwing
+          </Button>
+        </Flex>
+        <Flex>
+          <Flex marginTop={"66px"} align={"center"}>
+            <Text fontSize={["30px","30px","36px"]} w={["200px","200px","auto"]} textAlign={"center"} opacity={"80%"} fontWeight={"medium"}>
+              token prices on mangata
+            </Text>
+          </Flex>
+        </Flex>
+      </Flex>
+      <Flex marginTop={"16px"} align={"center"} flexDir={"column"} gap={"32px"}>
         {isLoading ? (
-          <div className="text-green-200 font-bold text-center md:text-xl">
-            loading token price data...
-          </div>
+          <Spinner color={"white"} size={"lg"} />
         ) : (
           <TokenList tokens={tokens} />
         )}
-      </main>
-    </>
+
+        {/* <Flex
+          w={"725px"}
+          h={"71px"}
+          bg={"rgba(100, 90, 133, 0.09)"}
+          border={"1px solid #645A85"}
+          fontFamily={"Poppins, sans-serif"}
+          fontSize={"22px"}
+          justifyContent={"space-between"}
+          rounded={"7px"}
+        ></Flex>
+        <Flex
+          w={"725px"}
+          h={"71px"}
+          bg={"rgba(100, 90, 133, 0.09)"}
+          border={"1px solid #645A85"}
+          fontFamily={"Poppins, sans-serif"}
+          fontSize={"22px"}
+          justifyContent={"space-between"}
+          rounded={"7px"}
+        ></Flex>
+        <Flex
+          w={"725px"}
+          h={"71px"}
+          bg={"rgba(100, 90, 133, 0.09)"}
+          border={"1px solid #645A85"}
+          fontFamily={"Poppins, sans-serif"}
+          fontSize={"22px"}
+          justifyContent={"space-between"}
+          rounded={"7px"}
+        ></Flex> */}
+      </Flex>
+    </Flex>
   );
 }
 
-const Header = () => (
-  <div className="mb-12">
-    <div className="flex justify-center items-center">
-      <div className="flex items-center space-x-1">
-        <Image src={MangataXLogo} alt="MangataX Logo" />
-      </div>
-    </div>
-    <div className="text-gray-100 text-lg mt-0.5 text-center leading-6">
-      token prices on mangata
-    </div>
-    <div className="flex justify-center items-center">
-      <a
-        href="https://twitter.com/nightwing_yb"
-        target={"_blank"}
-        rel="noreferrer"
-        className="text-gray-100 text-xs bg-slate-800 px-4 py-1 rounded-full mt-4 underline"
-      >
-        by nightwing
-      </a>
-    </div>
-  </div>
-);
+export default Index;
