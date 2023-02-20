@@ -22,6 +22,7 @@ function Index() {
       minHeight={"100vh"}
       bg={"linear-gradient(180deg, #110D1D 0%, #050505 100%)"}
       flexDir={"column"}
+      paddingBottom={"60px"}
     >
       <Flex
         w={"100%"}
@@ -54,13 +55,22 @@ function Index() {
             fontSize={"16px"}
             fontWeight={"normal"}
             _hover={{ background: "rgba(100, 90, 133, 0.3)" }}
+            href="https://twitter.com/nightwing_yb"
+            target="_blank"
+            as={"a"}
           >
             by nightwing
           </Button>
         </Flex>
         <Flex>
           <Flex marginTop={"66px"} align={"center"}>
-            <Text fontSize={["30px","30px","36px"]} w={["200px","200px","auto"]} textAlign={"center"} opacity={"80%"} fontWeight={"medium"}>
+            <Text
+              fontSize={["30px", "30px", "36px"]}
+              w={["200px", "200px", "auto"]}
+              textAlign={"center"}
+              opacity={"80%"}
+              fontWeight={"medium"}
+            >
               token prices on mangata
             </Text>
           </Flex>
