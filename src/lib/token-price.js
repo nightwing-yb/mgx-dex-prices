@@ -62,5 +62,14 @@ export async function fetchTokenPrices() {
     tokenPrices.set(token.symbol.toLowerCase(), price);
   }
 
-  return tokenPrices;
+  const tokens = Array.from(tokenPrices.keys()).map((symbol) => {
+    const T = Tokens.find((t) => t.symbol.toLowerCase() === symbol);
+    return {
+      symbol: T.symbol,
+      name: T.name,
+      price: tokenPrices.get(symbol),
+    };
+  });
+
+  return tokens;
 }

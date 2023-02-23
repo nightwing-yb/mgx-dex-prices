@@ -1,8 +1,8 @@
 import { Flex, Text, Image, Button, Spinner } from "@chakra-ui/react";
-import TokenList from "@/components/token-list";
 import useSWR from "swr";
-import axios from "axios";
-import { useState } from "react";
+
+import { fetchTokenPrices } from "@/lib/token-price";
+import TokenList from "@/components/token-list";
 
 function Index() {
   const {
@@ -10,13 +10,11 @@ function Index() {
     error,
     isLoading,
   } = useSWR("/api/prices", async () => {
-    const resp = await axios.get("/api/prices");
-    return resp.data.prices;
+    const tokens = await fetchTokenPrices();
+    console.log("tokens", tokens);
+    return tokens;
   });
 
-  // const isLoading = true;
-
-  const [categories] = useState(["Tokens", "Pairs"]);
   return (
     <Flex
       minHeight={"100vh"}
@@ -82,37 +80,6 @@ function Index() {
         ) : (
           <TokenList tokens={tokens} />
         )}
-
-        {/* <Flex
-          w={"725px"}
-          h={"71px"}
-          bg={"rgba(100, 90, 133, 0.09)"}
-          border={"1px solid #645A85"}
-          fontFamily={"Poppins, sans-serif"}
-          fontSize={"22px"}
-          justifyContent={"space-between"}
-          rounded={"7px"}
-        ></Flex>
-        <Flex
-          w={"725px"}
-          h={"71px"}
-          bg={"rgba(100, 90, 133, 0.09)"}
-          border={"1px solid #645A85"}
-          fontFamily={"Poppins, sans-serif"}
-          fontSize={"22px"}
-          justifyContent={"space-between"}
-          rounded={"7px"}
-        ></Flex>
-        <Flex
-          w={"725px"}
-          h={"71px"}
-          bg={"rgba(100, 90, 133, 0.09)"}
-          border={"1px solid #645A85"}
-          fontFamily={"Poppins, sans-serif"}
-          fontSize={"22px"}
-          justifyContent={"space-between"}
-          rounded={"7px"}
-        ></Flex> */}
       </Flex>
     </Flex>
   );
