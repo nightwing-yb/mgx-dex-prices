@@ -20,10 +20,7 @@ export default function App({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0"
         />
 
-        <meta
-          name="title"
-          content="MGX Analytics"
-        />
+        <meta name="title" content="MGX Analytics" />
         <meta name="description" content="token prices on mangata" />
 
         <meta property="og:type" content="website" key="og-type" />
@@ -47,7 +44,7 @@ export default function App({ Component, pageProps }) {
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content="https://aimint.fun/"
+          content="https://mgx-analytics.xyz"
           key="twt-url"
         />
         <meta
