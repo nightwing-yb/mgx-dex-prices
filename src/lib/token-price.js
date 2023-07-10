@@ -8,6 +8,7 @@ import {
 import Tokens from "./tokens.json";
 
 const MAINNET = [
+  "wss://kusama-rpc.mangata.online",
   "wss://mangata-x.api.onfinality.io/public-ws",
   "wss://prod-kusama-collator-01.mangatafinance.cloud",
 ];
